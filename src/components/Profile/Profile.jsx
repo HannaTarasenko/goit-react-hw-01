@@ -1,33 +1,36 @@
-/* eslint-disable no-irregular-whitespace */
-const Profile = ({name, tag, location, image, stats}) => {
+
+import styles from './Profile.module.css';
+
+const Profile = ({ name, tag, location, image, stats }) => {
     return (
-        <div>
-          <div>
-            <img
-              src={image}
-              alt="User avatar"
-            />
-            <p>{name}</p>
-            <p>@{tag}</p>
-            <p>{location}</p>
-          </div>
+        <div className={styles.profile}>
+            <div className={styles.description}>
+                <img
+                    src={image}
+                    alt="User avatar"
+                    className={styles.avatar}
+                />
+                <p className={styles.name}>{name}</p>
+                <p className={styles.tag}>@{tag}</p>
+                <p className={styles.location}>{location}</p>
+            </div>
         
-          <ul>
-            <li>
-              <span>Followers</span>
-              <span>{stats.followers}</span>
-            </li>
-            <li>
-              <span>Views</span>
-              <span>{stats.views}</span>
-            </li>
-            <li>
-              <span>Likes</span>
-              <span>{stats.likes}</span>
-            </li>
-          </ul>
+            <ul className={styles.stats}>
+                <li className={styles.statsItem}>
+                    <span className={styles.label}>Followers</span>
+                    <span className={styles.quantity}>{stats.followers}</span>
+                </li>
+                <li className={styles.statsItem}>
+                    <span className={styles.label}>Views</span>
+                    <span className={styles.quantity}>{stats.views}</span>
+                </li>
+                <li className={styles.statsItem}>
+                    <span className={styles.label}>Likes</span>
+                    <span className={styles.quantity}>{stats.likes}</span>
+                </li>
+            </ul>
         </div>
-        
     );
-  };
+};
+
 export default Profile;
